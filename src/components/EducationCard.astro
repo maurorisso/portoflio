@@ -1,0 +1,33 @@
+---
+type Props = {
+  name: string;
+  type: string;
+  field: string;
+  date: string;
+  logo: ImageMetadata;
+  location: string;
+  description: string;
+};
+
+const { name, type, field, date, location, description, logo } = Astro.props;
+
+import { Image } from "astro:assets";
+---
+
+<Card>
+  <Image src={logo} alt={name} width={100} class="rounded-md object-contain" />
+  <div>
+    <div class="flex justify-between w-full">
+      <h1 class="text-2xl">{name}</h1>
+    </div>
+
+    <div class="flex gap-2 w-full">
+      <p>{type}</p>
+      <span>-</span>
+      <p>{field}</p>
+    </div>
+    <p class="text-white/60 text-sm">{date}</p>
+
+    <p>{description}</p>
+  </div>
+</Card>

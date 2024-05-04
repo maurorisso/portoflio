@@ -1,0 +1,36 @@
+---
+import EducationCard from "./EducationCard.astro";
+import htw from "../assets/htw.png";
+import tamk from "../assets/tamk.png";
+
+const educationItems = [
+  {
+    logo: htw,
+    name: "HTW Berlin",
+    type: "B.Sc.",
+    field: "International Media and Computer Science",
+    location: "Berlin, Germany",
+    date: "Apr 2020 - Feb 2024",
+    description:
+      "Specialization in Web Technology. Bachelor Thesis: 'Development of a Navigation User Interface for Immersive Neuroimaging Systems'.",
+  },
+  {
+    logo: tamk,
+    name: " Tampere UAS",
+    type: "Exchange Studies",
+    field: " Software Engineering ",
+    location: "Tampere, Finland",
+    date: "Aug 2022 - Dec 2022",
+    description:
+      "DevOps (AWS), React, React Native, Flutter and Startup Founding Member of SOURCE ry, the university club for Software Engineers.",
+  },
+];
+---
+
+<section class="flex flex-col justify-center items-center">
+  <h2 class="text-4xl">Education</h2>
+  <div class="flex flex-col gap-4">
+    {educationItems.map((item) => <EducationCard {...item} />)}
+    <div></div>
+  </div>
+</section>
