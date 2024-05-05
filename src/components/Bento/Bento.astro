@@ -2,37 +2,28 @@
 import BentoItem from "./BentoItem.astro";
 ---
 
-<div class="grid grid-cols-6 grid-rows-4 gap-4 h-[50vh]">
+<div class="grid grid-cols-6 grid-rows-4 gap-2 h-[50vh]">
   <BentoItem
     class="col-span-2 row-span-2"
-    description=""
     link="/education"
     title="Education"
   />
   <BentoItem
     class="col-span-4 row-span-2 col-start-3"
-    description=""
-    link="/Experience"
+    link="/experience"
     title="Experience"
   />
 
   <BentoItem
     class="col-span-4 row-span-2 row-start-3"
-    description=""
     link="/projects"
     title="Projects"
   />
   <BentoItem
     class="col-span-2 col-start-5 row-start-3"
-    description=""
     link=""
     title="Contact"
   />
 
-  <BentoItem
-    class="col-span-2 col-start-5 row-start-4"
-    description=""
-    link="/about"
-    title="About"
-  />
+  <BentoItem class="col-span-2 col-start-5 row-start-4" link="/" title="Home" />
 </div>

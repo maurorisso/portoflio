@@ -1,16 +1,10 @@
 ---
-
+import Logo from "./Logo.astro";
 ---
 
 <nav class="bg-background">
   <div class="flex w-full p-6 flex-wrap items-center justify-between mx-auto">
-    <div
-      class="self-center text-3xl font-semibold whitespace-nowrap dark:text-white"
-    >
-      <div>Mauro</div>
-      <div>Risso</div>
-    </div>
-
+    <Logo />
     <!-- Mobile -->
     <button
       data-collapse-toggle="navbar-default"
@@ -36,7 +30,7 @@
       </svg>
     </button>
     <!-- End Mobile -->
-    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+    <!-- <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul
         class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700"
       >
@@ -63,7 +57,7 @@
           >
         </li>
       </ul>
-    </div>
+    </div> -->
     <div class="flex items-center justify-center gap-2 text-white text-sm">
       <div class="p-1">
         <div class="relative flex h-3 w-3 justify-center items-center">

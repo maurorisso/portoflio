@@ -1,12 +1,11 @@
 ---
 type Props = {
   title: string;
-  description: string;
   link: string;
   class: string;
 };
 
-const { title, description, link, class: className } = Astro.props;
+const { title, link, class: className } = Astro.props;
 ---
 
 <a
@@ -14,6 +13,5 @@ const { title, description, link, class: className } = Astro.props;
   class="bg-foreground rounded-xl p-6 flex gap-2 justify-center align-middle hover:bg-primary/50 transition-colors duration-200 ease-in-out"
   href={link}
 >
-  <h2>{title}</h2>
-  <p>{description}</p>
+  <h2 class="h-fit">{title}</h2>
 </a>

@@ -1,5 +1,6 @@
 ---
-import Navbar from "@/components/Navbar.astro";
+import Bento from "@/components/Bento/Bento.astro";
+import Navbar from "@/components/Shared/Navbar.astro";
 import "@fontsource-variable/bricolage-grotesque";
 
 import { ViewTransitions } from "astro:transitions";
@@ -18,7 +19,14 @@ import { ViewTransitions } from "astro:transitions";
   </head>
   <body class="bg-background text-white h-screen">
     <Navbar />
-    <slot />
+    <div class="w-5/6 m-auto flex gap-10 justify-between">
+      <div class="w-full flex flex-col items-center">
+        <slot />
+      </div>
+
+      <Bento />
+    </div>
+
     <style is:global>
       :root {
         --accent: 136, 58, 234;
@@ -30,6 +38,14 @@ import { ViewTransitions } from "astro:transitions";
           rgb(var(--accent-light)) 30%,
           white 60%
         );
+      }
+      ::selection {
+        color: #96cd79;
+        background: #23262f;
+      }
+      .imp {
+        color: #96cd79;
+        background: #23262f;
       }
       html {
         background: #13151a;

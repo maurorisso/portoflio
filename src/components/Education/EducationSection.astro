@@ -1,0 +1,38 @@
+---
+import EducationCard from "./EducationCard.astro";
+import htw from "../../assets/htw.png";
+import tamk from "../../assets/tamk.png";
+import { type Props } from "./EducationCard.astro";
+
+const educationItems: Props[] = [
+  {
+    logo: htw,
+    name: "HTW Berlin",
+    type: "B.Sc.",
+    field: "International Media and Computer Science",
+    location: "Berlin, Germany",
+    date: "Apr 2020 - Feb 2024",
+    description: "Specialization in Web Technology",
+    thesis:
+      "  'Development of a Navigation User Interface for Immersive Neuroimaging Systems'",
+    courses: ["Full-Stack", "React", "Next.js", "Three.js", "Java", "SQL"],
+  },
+  {
+    logo: tamk,
+    name: " Tampere UAS",
+    type: "Exchange Studies",
+    field: " Software Engineering ",
+    location: "Tampere, Finland",
+    date: "Aug 2022 - Dec 2022",
+    description:
+      "Specialization in Software Engineering and User Experience Design",
+    courses: ["AWS", "React", "React Native", "Flutter", "Lean Startup"],
+  },
+];
+---
+
+<section class="flex flex-col justify-center items-center">
+  <div class="flex flex-col gap-5 justify-center items-center">
+    {educationItems.map((item) => <EducationCard {...item} />)}
+  </div>
+</section>
