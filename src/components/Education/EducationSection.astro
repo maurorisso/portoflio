@@ -1,10 +1,12 @@
 ---
-import EducationCard from "./EducationCard.astro";
+import EducationCard from "../Shared/Card.astro";
 import htw from "../../assets/htw.png";
 import tamk from "../../assets/tamk.png";
-import { type Props } from "./EducationCard.astro";
+import { type CardProps } from "../Shared/Card.astro";
+import Title from "../Shared/Title.astro";
+import Section from "../Shared/Section.astro";
 
-const educationItems: Props[] = [
+const educationItems: CardProps[] = [
   {
     logo: htw,
     name: "HTW Berlin",
@@ -15,7 +17,7 @@ const educationItems: Props[] = [
     description: "Specialization in Web Technology",
     thesis:
       "  'Development of a Navigation User Interface for Immersive Neuroimaging Systems'",
-    courses: ["Full-Stack", "React", "Next.js", "Three.js", "Java", "SQL"],
+    tags: ["Full-Stack", "React", "Next.js", "Three.js", "Java", "SQL"],
   },
   {
     logo: tamk,
@@ -26,13 +28,13 @@ const educationItems: Props[] = [
     date: "Aug 2022 - Dec 2022",
     description:
       "Specialization in Software Engineering and User Experience Design",
-    courses: ["AWS", "React", "React Native", "Flutter", "Lean Startup"],
+    tags: ["AWS", "React", "React Native", "Flutter", "Lean Startup"],
   },
 ];
 ---
 
-<section class="flex flex-col justify-center items-center">
-  <div class="flex flex-col gap-5 justify-center items-center">
+<Section title="Education">
+  <div class="flex flex-col md:flex-row gap-5 justify-center items-center">
     {educationItems.map((item) => <EducationCard {...item} />)}
   </div>
-</section>
+</Section>

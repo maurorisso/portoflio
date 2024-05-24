@@ -1,0 +1,45 @@
+---
+import type { CardProps } from "../Shared/Card.astro";
+import htw from "../../assets/htw.png";
+import Card from "../Shared/Card.astro";
+import Section from "../Shared/Section.astro";
+const experienceItems: CardProps[] = [
+  {
+    name: "Software Engineer",
+    date: "2021 - Present",
+    description: "I do stuff",
+    field: "Company",
+    type: "Full-time",
+    location: "Remote",
+    logo: htw,
+    tags: ["React", "Node.js", "TypeScript"],
+  },
+  {
+    name: "Frontend Engineer",
+    date: "2020 - 2021",
+    description: "I do stuff",
+    field: "Company",
+    type: "Full-time",
+    location: "Remote",
+    logo: htw,
+    tags: ["React", "Node.js", "TypeScript"],
+  },
+  {
+    name: "Frontend Engineer",
+    date: "2020 - 2021",
+    description: "I do stuff",
+    field: "Company",
+    type: "Full-time",
+    location: "Remote",
+    logo: htw,
+    tags: ["React", "Node.js", "TypeScript"],
+  },
+];
+---
+
+<Section title="Experience">
+  <!-- add job experience -->
+  <div class="w-full flex flex-col items-center justify-center">
+    {experienceItems.map((item) => <Card {...item} />)}
+  </div>
+</Section>

@@ -1,23 +1,23 @@
 ---
-export type Props = {
+export type CardProps = {
   name: string;
   type: string;
   field: string;
   date: string;
   logo: ImageMetadata;
-  location?: string;
+  location: string;
   description: string;
   thesis?: string;
-  courses: string[];
+  tags: string[];
 };
 
-const { name, type, field, date, description, logo, thesis, courses } =
+const { name, type, field, date, description, logo, thesis, tags } =
   Astro.props;
 import { Image } from "astro:assets";
-import CourseItem from "./CourseItem.astro";
+import TagItem from "../Education/TagItem.astro";
 ---
 
-<div class="flex gap-2 w-full">
+<div class="flex gap-4 w-full p-4 text-pretty">
   <Image src={logo} alt={name} width={100} class="rounded-md object-contain" />
   <div class="">
     <div class="flex justify-between w-full">
@@ -25,25 +25,25 @@ import CourseItem from "./CourseItem.astro";
     </div>
 
     <div class="flex gap-2 w-full">
-      <p>{type}</p>
+      <p class="">{type}</p>
       <span>-</span>
       <p>{field}</p>
     </div>
     <p class="text-white/60 text-sm">{date}</p>
 
-    <p>{description}</p>
+    <p class="text-pretty">{description}</p>
     <div>
       {
         thesis && (
-          <div>
-            <span class="text-lg ">Thesis: </span>
-            <span class="text-white/90 ">{thesis}</span>
+          <div class="tex-sm text-pretty">
+            <span class="text-sm ">Thesis: </span>
+            <span class="text-white/90 text-sm ">{thesis}</span>
           </div>
         )
       }
     </div>
     <div class="flex gap-2 mt-2">
-      {courses.map((course) => <CourseItem>{course}</CourseItem>)}
+      {tags.map((tag) => <TagItem>{tag}</TagItem>)}
     </div>
   </div>
 </div>
