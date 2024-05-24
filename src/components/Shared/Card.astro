@@ -43,7 +43,7 @@ import TagItem from "../Education/TagItem.astro";
       }
     </div>
     <div class="flex gap-2 mt-2">
-      {tags.map((tag) => <TagItem>{tag}</TagItem>)}
+      {tags.map((tag: string) => <TagItem>{tag}</TagItem>)}
     </div>
   </div>
 </div>
