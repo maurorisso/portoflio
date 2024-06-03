@@ -1,0 +1,53 @@
+---
+export type EducationProps = {
+  type: string;
+  title: string;
+  field: string;
+  date: string;
+  location: string;
+  logo: ImageMetadata;
+  thesis?: string;
+  description?: string;
+  tags: string[];
+};
+const {
+  title,
+  type,
+  field,
+  date,
+  description,
+  logo,
+  bulletPoints,
+  thesis,
+  tags,
+} = Astro.props;
+import TagItem from "../Shared/TagItem.astro";
+---
+
+<div class="flex flex-1 flex-col gap-2 p-4 text-pretty justify-center">
+  <h1 class="text-2xl">{title}</h1>
+  <div class="flex gap-2 w-full">
+    <p class="">{type}</p>
+    <span>-</span>
+    <p>{field}</p>
+  </div>
+  <div class="text-sm">{date}</div>
+
+  <div>
+    <p class="text-pretty">{description}</p>
+    <div>
+      {
+        thesis && (
+          <div class="text-sm text-pretty">
+            <span class="text-sm ">Thesis: </span>
+            <span class="text-white/90 text-sm ">{thesis}</span>
+          </div>
+        )
+      }
+    </div>
+    {}
+    <div class="flex gap-2 mt-2">
+      {tags.map((tag: string) => <TagItem>{tag}</TagItem>)}
+    </div>
+  </div>
+</div>

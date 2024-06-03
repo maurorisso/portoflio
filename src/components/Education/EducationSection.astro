@@ -1,40 +1,39 @@
 ---
-import EducationCard from "../Shared/Card.astro";
+import EducationCard from "./EducationCard.astro";
 import htw from "../../assets/htw.png";
 import tamk from "../../assets/tamk.png";
-import { type CardProps } from "../Shared/Card.astro";
+import { type EducationProps } from "./EducationCard.astro";
 import Title from "../Shared/Title.astro";
 import Section from "../Shared/Section.astro";
 
-const educationItems: CardProps[] = [
+const educationItems: EducationProps[] = [
   {
     logo: htw,
-    name: "HTW Berlin",
+    title: "HTW Berlin",
     type: "B.Sc.",
     field: "International Media and Computer Science",
     location: "Berlin, Germany",
     date: "Apr 2020 - Feb 2024",
-    description: "Specialization in Web Technology",
+    description: "Specialization in Web Technology - Full-Stack Development.",
     thesis:
-      "  'Development of a Navigation User Interface for Immersive Neuroimaging Systems'",
+      "  'Development of a Navigation User Interface for Immersive Neuroimaging Systems'.",
     tags: ["Full-Stack", "React", "Next.js", "Three.js", "Java", "SQL"],
   },
   {
     logo: tamk,
-    name: " Tampere UAS",
+    title: "Tampere UAS",
     type: "Exchange Studies",
     field: " Software Engineering ",
     location: "Tampere, Finland",
     date: "Aug 2022 - Dec 2022",
-    description:
-      "Specialization in Software Engineering and User Experience Design",
+    description: "Specialization in  Cloud Computing and Mobile Development.",
     tags: ["AWS", "React", "React Native", "Flutter", "Lean Startup"],
   },
 ];
 ---
 
 <Section title="Education">
-  <div class="flex flex-col md:flex-row gap-5 justify-center items-center">
+  <div class="flex w-full flex-col md:flex-row gap-5 items-center">
     {educationItems.map((item) => <EducationCard {...item} />)}
   </div>
 </Section>

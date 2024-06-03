@@ -1,45 +1,65 @@
 ---
-import type { CardProps } from "../Shared/Card.astro";
+import type { ExperienceProps } from "./ExperienceCard.astro";
 import htw from "../../assets/htw.png";
-import Card from "../Shared/Card.astro";
+import cariad from "../../assets/cariad_logo.jpeg";
+import nosto from "../../assets/nosto_logo.jpeg";
+import apploft from "../../assets/apploft.png";
+import ExperienceCard from "./ExperienceCard.astro";
 import Section from "../Shared/Section.astro";
-const experienceItems: CardProps[] = [
+import Bento from "../Bento/Bento.astro";
+
+const experienceItems: ExperienceProps[] = [
   {
-    name: "Software Engineer",
-    date: "2021 - Present",
-    description: "I do stuff",
-    field: "Company",
-    type: "Full-time",
-    location: "Remote",
-    logo: htw,
-    tags: ["React", "Node.js", "TypeScript"],
+    title: "Frontend Developer",
+    date: "Feb 2023 - Feb 2024",
+    company: "Nosto",
+    location: "Berlin, Germany",
+    type: "Junior",
+    description:
+      "Developed, tested, and optimized custom web components and responsive pages for major e-commerce clients using React, JavaScript, and GraphQL, with integration across platforms like Shopify, Magento, Shopware, and BigCommerce, while collaborating closely with clients to meet their requirements.",
+    tags: ["React.js", "JavaScript", "GraphQL", "Shopify"],
   },
   {
-    name: "Frontend Engineer",
-    date: "2020 - 2021",
-    description: "I do stuff",
-    field: "Company",
-    type: "Full-time",
-    location: "Remote",
-    logo: htw,
-    tags: ["React", "Node.js", "TypeScript"],
+    title: "Software Engineer",
+    date: "Jun 2022 - Sep 2022",
+    company: "Cariad - Volkswagen Group",
+    type: "Working Student",
+    description:
+      "Played a key role in enhancing the Volkswagen infotainment systems by developing and debugging the Android HMI framework using Kotlin, leading to improved performance and a more intuitive user experience in vehicle navigation and multimedia systems",
+    location: "Berlin, Germany",
+    tags: ["Kotlin", "Java"],
   },
   {
-    name: "Frontend Engineer",
-    date: "2020 - 2021",
-    description: "I do stuff",
-    field: "Company",
-    type: "Full-time",
-    location: "Remote",
-    logo: htw,
-    tags: ["React", "Node.js", "TypeScript"],
+    title: "Android Development and QA",
+    date: "Oct 2021 - Mar 2022",
+    company: "apploft.",
+    type: "Intern",
+    location: "Hamburg, Germany",
+    description:
+      "Developed an XML Android application with seamless API integration and robust permission systems, converted it to Jetpack Compose using Kotlin, and conducted comprehensive testing across iOS and Android platforms, identifying and documenting critical bugs.",
+    tags: [
+      "Jetpack Compose",
+      "Software Quality Assurance",
+      "API Integration",
+      "Kotlin",
+    ],
+  },
+  {
+    title: "Frontend Developer",
+    date: "Nov 2019 - Jan 2020",
+    company: "ChipsTV",
+    type: "Intern",
+    location: "Berlin, Germany",
+    description:
+      "Wrote my first lines of code in HTML, JavaScript, and CSS. This experience inspired me to pursue my degree in CS",
+    tags: ["JavaScript", "HTML", "CSS"],
   },
 ];
 ---
 
 <Section title="Experience">
   <!-- add job experience -->
-  <div class="w-full flex flex-col items-center justify-center">
-    {experienceItems.map((item) => <Card {...item} />)}
+  <div class="flex flex-col gap-5 items-center justify-center">
+    {experienceItems.map((item) => <ExperienceCard {...item} />)}
   </div>
 </Section>
