@@ -1,7 +1,7 @@
 ---
-import Bento from "@/components/Bento/Bento.astro";
 import Navbar from "@/components/Shared/Navbar.astro";
 import "@fontsource-variable/bricolage-grotesque";
+import { SEO } from "astro-seo";
 
 import { ViewTransitions } from "astro:transitions";
 ---
@@ -9,10 +9,14 @@ import { ViewTransitions } from "astro:transitions";
 <!doctype html>
 <html lang="en" class="bg-background">
   <head>
+    <SEO
+      title="Mauro Risso personal website"
+      description="Mauro Risso - Software Engineer based in Berlin"
+    />
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/icon.png" />
     <meta name="generator" content={Astro.generator} />
     <ViewTransitions />
     <title>Mauro Risso</title>
@@ -21,8 +25,6 @@ import { ViewTransitions } from "astro:transitions";
     <Navbar />
     <div class="w-9/12 m-auto flex flex-col gap-20">
       <slot />
-
-      <!-- <Bento /> -->
     </div>
 
     <style is:global>
