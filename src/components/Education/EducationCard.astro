@@ -24,7 +24,7 @@ const {
 import TagItem from "../Shared/TagItem.astro";
 ---
 
-<div class="flex flex-1 flex-col gap-2 p-4 text-pretty justify-center">
+<div class="flex  flex-col    p-2  ">
   <h1 class="text-2xl">{title}</h1>
   <div class="flex gap-2 w-full">
     <p class="">{type}</p>
@@ -46,7 +46,7 @@ import TagItem from "../Shared/TagItem.astro";
       }
     </div>
     {}
-    <div class="flex gap-2 mt-2">
+    <div class="flex gap-2 mt-2 items-center">
       {tags.map((tag: string) => <TagItem>{tag}</TagItem>)}
     </div>
   </div>

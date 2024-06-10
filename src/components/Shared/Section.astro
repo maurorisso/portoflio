@@ -3,9 +3,10 @@ import Title from "./Title.astro";
 
 type Props = {
   title: string;
+  className?: string;
 };
 
-const { title } = Astro.props;
+const { title, className } = Astro.props;
 const id = title.toLowerCase().replace(/\s/g, "-");
 ---
 
@@ -13,5 +14,7 @@ const id = title.toLowerCase().replace(/\s/g, "-");
   <Title>
     {title}
   </Title>
-  <slot />
+  <div class={className}>
+    <slot />
+  </div>
 </section>

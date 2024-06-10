@@ -2,14 +2,18 @@
 import Logo from "./Logo.astro";
 ---
 
-<nav class="bg-background">
-  <div class="flex w-full p-6 flex-wrap items-center justify-between mx-auto">
+<nav
+  class="sticky top-0 z-50 w-full border-b border-slate-800 backdrop-blur bg-background/60"
+>
+  <div
+    class="flex w-full px-6 flex-wrap items-center justify-between mx-auto h-14"
+  >
     <Logo />
     <!-- Mobile -->
     <button
       data-collapse-toggle="navbar-default"
       type="button"
-      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
       aria-controls="navbar-default"
       aria-expanded="false"
     >
@@ -30,29 +34,15 @@ import Logo from "./Logo.astro";
       </svg>
     </button>
     <!-- End Mobile -->
-    <!-- <div class="flex items-center justify-center gap-2 text-white text-sm">
-      <div class="p-1">
-        <div class="relative flex h-3 w-3 justify-center items-center">
-          <span
-            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-90"
-          ></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"
-          ></span>
-        </div>
-      </div>
-      <div class="flex flex-col items-center justify-center">
-        <div>Open to work</div>
-        <div class="text-xs text-white/70">Based in Berlin</div>
-      </div>
-    </div> -->
+
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul
-        class="font-medium flex flex-col p-4 md:p-0 mt-4 border gap-4 border-gray-100 rounded-lg md:flex-row rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700"
+        class="font-medium flex  items-center flex-col p-4 md:p-0 mt-4 border gap-4 border-gray-100 rounded-lg md:flex-row rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700"
       >
         <li>
           <a
             href="#experience"
-            class="block py-2 px-3 text-white bg-primary rounded md:bg-transparent md:text-primary md:p-0 dark:text-white hover:text-primary"
+            class="block py-2 transition-all duration-300 px-3 text-white bg-primary rounded md:bg-transparent md:text-primary md:p-0 dark:text-white hover:text-primary"
             aria-current="page">Experience</a
           >
         </li>
@@ -60,25 +50,12 @@ import Logo from "./Logo.astro";
         <li>
           <a
             href="#education"
-            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 dark:text-white md:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+            class="block py-2 px-3 transition-all duration-300 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0"
             >Education</a
           >
         </li>
-        <li>
-          <a
-            href="#projects"
-            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 dark:text-white md:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >Projects</a
-          >
-        </li>
 
-        <li>
-          <a
-            href="/contact"
-            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 dark:text-white md:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >Contact</a
-          >
-        </li>
+    
       </ul>
     </div>
   </div>
