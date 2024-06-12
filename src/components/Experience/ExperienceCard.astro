@@ -37,7 +37,7 @@ const { description, type, title, company, date, location, tags } = Astro.props;
     }
   </div>
 
-  <div>{description}</div>
+  <p>{description}</p>
   <div class="flex gap-2">
     {tags.map((tag: string) => <TagItem> {tag} </TagItem>)}
   </div>

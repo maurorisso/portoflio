@@ -4,13 +4,16 @@ import Layout from "../layouts/Layout.astro";
 
 import HeroSection from "@/components/Home/HeroSection.astro";
 import ExperienceSection from "@/components/Experience/ExperienceSection.astro";
-
+import ProjectSection from "@/components/Project/ProjectSection.astro";
+import Marquee from "@/components/Home/Marquee.astro";
 ---
 
 <Layout title="Mauro Risso">
-  <div class="m-auto flex flex-col gap-14 mb-20 ">
+  <div class="m-auto flex flex-col gap-14 mb-20">
     <HeroSection />
+    <ProjectSection />
     <ExperienceSection />
+    <Marquee />
     <EducationSection />
   </div>
 </Layout>
