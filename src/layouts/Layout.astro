@@ -11,23 +11,23 @@ import { ViewTransitions } from "astro:transitions";
 <html lang="en" class="bg-background">
   <head>
     <SEO
-      title="Mauro Risso  - Software Engineer based in Berlin"
+      title="Mauro Risso - Software Engineer"
       description="Explore the personal portfolio of Mauro Risso, a Berlin-based Software Engineer specializing in Fullstack Development. With expertise in React and Next.js, Mauro is dedicated to creating user-friendly and accessible digital products. Discover projects, skills, and experience in software engineering, and get in touch for collaboration opportunities."
     />
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/memoji.jpg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <ViewTransitions />
     <title>Mauro Risso</title>
   </head>
-  <body class="text-white h-screen bg-background">
+  <body class="text-white bg-background flex flex-col">
     <Navbar />
-    <div class="m-auto flex flex-col gap-20 w-5/6 lg:w-4/6">
+    <div class="m-auto gap-20 w-5/6 lg:w-4/6">
       <slot />
     </div>
-    <Footer />
+    <!-- <Footer /> -->
 
     <style is:global>
       :root {
