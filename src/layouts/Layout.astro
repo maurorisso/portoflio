@@ -5,68 +5,83 @@ import "@fontsource-variable/bricolage-grotesque";
 import { SEO } from "astro-seo";
 
 import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Mauro Risso's portfolio - Frontend Engineer" } =
+  Astro.props;
+
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
-<html lang="en" class="bg-background">
+<html lang="en" class="dark">
   <head>
-    <SEO
-      title="Mauro Risso - Software Engineer"
-      description="Explore the personal portfolio of Mauro Risso, a Berlin-based Software Engineer specializing in Fullstack Development. With expertise in React and Next.js, Mauro is dedicated to creating user-friendly and accessible digital products. Discover projects, skills, and experience in software engineering, and get in touch for collaboration opportunities."
-    />
+    <SEO title={title} description={description} />
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <meta name="generator" content={Astro.generator} />
     <ViewTransitions />
-    <title>Mauro Risso</title>
+    <title>{title}</title>
   </head>
-  <body class="text-white bg-background flex flex-col">
-    <Navbar />
-    <div class="m-auto gap-20 w-5/6 lg:w-4/6">
+  <body class="bg-black text-zinc-100 antialiased text-sm">
+    <main class="mx-auto max-w-2xl px-4 py-16">
+      <header class="mb-8">
+        <h1 class="text-lg font-normal text-zinc-100 mb-8">Mauro Risso</h1>
+      </header>
       <slot />
-    </div>
+      <footer class="mt-8">
+        <div class="flex gap-6">
+          <a
+            href="https://github.com/maurorisso"
+            class="text-zinc-100 hover:underline transition-colors">GitHub↗</a
+          >
+          <a
+            href="https://linkedin.com/in/maurorisso"
+            class="text-zinc-100 hover:underline transition-colors"
+            >LinkedIn↗</a
+          >
+          <a
+            href="#"
+            onclick="event.preventDefault(); this.textContent = 'me[at]maurorisso.com'"
+            class="text-zinc-100 hover:underline transition-colors">Email↗</a
+          >
+        </div>
+      </footer>
+    </main>
     <!-- <Footer /> -->
 
     <style is:global>
       :root {
-        --accent: 136, 58, 234;
-        --accent-light: 224, 204, 250;
-        --accent-dark: 49, 10, 101;
-        --accent-gradient: linear-gradient(
-          45deg,
-          rgb(var(--accent)),
-          rgb(var(--accent-light)) 30%,
-          white 60%
-        );
+        color-scheme: dark;
       }
-      ::selection {
-        color: #96cd79;
-        background: #23262f;
-      }
-      .imp {
-        color: #96cd79;
-        /* background: #23262f; */
-      }
+
       html {
-        background: #13151a;
+        font-family: "Geist Mono", monospace;
+        background: #000;
         background-size: 224px;
+        letter-spacing: -0.03em;
       }
-      html {
-        font-family: "Bricolage Grotesque Variable", sans-serif;
-        scroll-behavior: smooth;
+
+      body {
+        min-height: 100vh;
       }
+
       code {
-        font-family:
-          Menlo,
-          Monaco,
-          Lucida Console,
-          Liberation Mono,
-          DejaVu Sans Mono,
-          Bitstream Vera Sans Mono,
-          Courier New,
-          monospace;
+        font-family: "Geist Mono", monospace;
+      }
+
+      a {
+        text-decoration-thickness: from-font;
       }
     </style>
   </body>

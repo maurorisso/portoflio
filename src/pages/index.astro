@@ -1,15 +1,128 @@
 ---
-import EducationSection from "@/components/Education/EducationSection.astro";
 import Layout from "../layouts/Layout.astro";
-
-import HeroSection from "@/components/Home/HeroSection.astro";
-import ExperienceSection from "@/components/Experience/ExperienceSection.astro";
-import ProjectSection from "@/components/Project/ProjectSection.astro";
-import Marquee from "@/components/Home/Marquee.astro";
 ---
 
-<Layout title="Mauro Risso">
-  <div class="m-auto flex flex-col gap-14 mb-20 max-w-7xl">
-    <HeroSection />
-  </div>
+<Layout title="Mauro Risso | Product Software Engineer">
+  <!-- Intro Section -->
+  <section class="flex flex-col gap-4 mb-8">
+    <div class="flex flex-col gap-4">
+      <p>
+        I am a product software engineer, a son, a brother, a friend, or
+        probably just a stranger.
+      </p>
+      <p>
+        Curious and interested in tech, design, saas, branding, fashion, music,
+        art, and more.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <div class="flex gap-4">
+        <span class="text-zinc-400">Since 2025</span>
+        <div>
+          Founding Engineer at
+          <a
+            href="https://www.usekinetic.com"
+            class="text-zinc-200 hover:text-zinc-100 transition-colors font-bold hover:underline"
+          >
+            Kinetic
+          </a>
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <span class="text-zinc-400">Since 2018</span>
+        <span>living in Berlin</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Section -->
+  <section class="flex flex-col gap-8">
+    <div class="flex flex-col gap-4 text-zinc-400">
+      <h3 class="text-xl text-white">Experience</h3>
+
+      <div>
+        At <a
+          href="https://www.otto.de"
+          class="text-zinc-200 font-bold hover:text-zinc-100 transition-colors hover:underline"
+          >Otto</a
+        >, I worked as a Full Stack Developer building widgets for their
+        homepage and app. We created an internal CMS using Kotlin and Vue.js,
+        running on AWS.
+      </div>
+      <div>
+        At <a
+          href="https://www.nosto.com"
+          class="text-zinc-200 font-bold hover:text-zinc-100 transition-colors hover:underline"
+          >Nosto</a
+        >, I worked as a Frontend Developer building custom web components with
+        React and GraphQL for Shopify and Magento stores. Created over 100
+        components that merchants could easily add to their stores.
+      </div>
+
+      <div>
+        I had my first tech jobs as a working student and intern at <a
+          href="https://www.apploft.de"
+          class="text-zinc-200 font-bold hover:text-zinc-100 transition-colors hover:underline"
+          >Apploft</a
+        >, <span class="text-zinc-200 font-bold transition-colors">
+          Chips.tv,
+        </span> and <a
+          href="https://www.cariad.com"
+          class="text-zinc-200 font-bold hover:text-zinc-100 transition-colors hover:underline"
+          >CARIAD</a
+        >, where I worked with Kotlin and JavaScript.
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <h3 class="text-xl text-white">Education</h3>
+      <div class="text-zinc-400">
+        Altough not so relevant nowadays, I also completed my "Media and
+        Computer Science" (Medieninformatik in German) BSc. at <a
+          href="https://www.htw-berlin.de"
+          class="text-zinc-200 hover:text-zinc-100 transition-colors hover:underline font-bold"
+          >HTW Berlin</a
+        >. I also studied some months in Finland at <a
+          href="https://www.tuni.fi"
+          class="text-zinc-200 hover:text-zinc-100 transition-colors hover:underline font-bold"
+          >Tamk</a
+        >.
+      </div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h3 class="text-xl text-white">Tech Stack</h3>
+      <div class="text-zinc-400">
+        I enjoy working with the typical SaaS stack: Next.js, TypeScript, Supabase, Tailwind CSS (with shadcn/ui), and Vercel.
+      </div>
+    </div>
+    <script is:inline>
+      function setupToggleListeners() {
+        document.querySelectorAll("[data-details-toggle]").forEach((toggle) => {
+          // Remove any existing listeners first to prevent duplicates
+          const clone = toggle.cloneNode(true);
+          toggle.parentNode.replaceChild(clone, toggle);
+
+          clone.addEventListener("click", (e) => {
+            if (e.target && e.target.tagName === "A") {
+              e.stopPropagation();
+              return;
+            }
+            const details =
+              clone.parentElement?.querySelector("[data-details]");
+            if (details) {
+              details.classList.toggle("hidden");
+            }
+          });
+        });
+      }
+
+      // Run on initial load
+      document.addEventListener("DOMContentLoaded", setupToggleListeners);
+
+      // Run on view transitions
+      document.addEventListener("astro:after-swap", setupToggleListeners);
+    </script>
+  </section>
 </Layout>
