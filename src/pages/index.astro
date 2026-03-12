@@ -31,10 +31,10 @@ import Layout from "../layouts/Layout.astro";
       <!-- Description -->
       <div class="flex flex-col gap-4">
         <p class="text-zinc-100">
-          Product engineer based in Berlin
+          I am a product software engineer, a son, a brother, a friend, or probably just a stranger.
         </p>
         <p class="text-zinc-100">
-          Curious, interested in design and systems
+          Curious and interested in tech, design, SaaS, branding, fashion, music, art, and more.
         </p>
       </div>
 
@@ -57,6 +57,14 @@ import Layout from "../layouts/Layout.astro";
           <span class="text-zinc-400 min-w-[120px]">Since 2018</span>
           <span class="text-zinc-100">Living in Berlin</span>
         </div>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="flex flex-col gap-4">
+        <h2 class="text-zinc-100">Tech Stack</h2>
+        <p class="text-zinc-400">
+          I enjoy working with the typical SaaS stack: Next.js, TypeScript, Supabase, Tailwind CSS (with shadcn/ui), and Vercel.
+        </p>
       </div>
 
       <!-- Get in touch -->
@@ -89,82 +97,113 @@ import Layout from "../layouts/Layout.astro";
 
   <!-- Past Tab Content -->
   <section id="past-tab" class="tab-content hidden">
-    <div class="flex flex-col gap-6">
-      <div class="flex gap-12">
-        <span class="text-zinc-400 min-w-[120px]">2026 — Now</span>
-        <div>
-          <span class="text-zinc-100">Product engineer at </span>
-          <a
-            href="https://handly.de"
-            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
-          >
-            handly.de
-          </a>
+    <div class="flex flex-col gap-12">
+      <!-- Experience -->
+      <div class="flex flex-col gap-6">
+        <h2 class="text-zinc-100">Experience</h2>
+
+        <div class="flex flex-col gap-2">
+          <div class="flex gap-12">
+            <span class="text-zinc-400 min-w-[120px]">2026 — Now</span>
+            <div>
+              <span class="text-zinc-100">Product engineer at </span>
+              <a
+                href="https://handly.de"
+                class="text-zinc-100 hover:underline underline-offset-4 transition-all"
+              >
+                handly.de
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <div class="flex gap-12">
+            <span class="text-zinc-400 min-w-[120px]">2023 — 2025</span>
+            <div>
+              <span class="text-zinc-100">Full-Stack Developer at </span>
+              <a
+                href="https://www.otto.de"
+                class="text-zinc-100 hover:underline underline-offset-4 transition-all"
+              >
+                Otto.de
+              </a>
+            </div>
+          </div>
+          <p class="text-zinc-400 ml-[168px]">
+            Building widgets for homepage and app. Created an internal CMS using Kotlin and Vue.js, running on AWS.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <div class="flex gap-12">
+            <span class="text-zinc-400 min-w-[120px]">2021 — 2023</span>
+            <div>
+              <span class="text-zinc-100">Frontend Developer at </span>
+              <a
+                href="https://www.nosto.com"
+                class="text-zinc-100 hover:underline underline-offset-4 transition-all"
+              >
+                Nosto
+              </a>
+            </div>
+          </div>
+          <p class="text-zinc-400 ml-[168px]">
+            Building custom web components with React and GraphQL for Shopify and Magento stores. Created over 100 components that merchants could easily add to their stores.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <div class="flex gap-12">
+            <span class="text-zinc-400 min-w-[120px]">2019 — 2021</span>
+            <div>
+              <span class="text-zinc-100">Working Student at </span>
+              <a
+                href="https://www.cariad.com"
+                class="text-zinc-100 hover:underline underline-offset-4 transition-all"
+              >
+                CARIAD
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <div class="flex gap-12">
+            <span class="text-zinc-400 min-w-[120px]">2018 — 2019</span>
+            <div>
+              <span class="text-zinc-100">Working Student at </span>
+              <a
+                href="https://www.apploft.de"
+                class="text-zinc-100 hover:underline underline-offset-4 transition-all"
+              >
+                Apploft
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="flex gap-12">
-        <span class="text-zinc-400 min-w-[120px]">2023 — 2025</span>
-        <div>
-          <span class="text-zinc-100">Full-Stack Developer at </span>
-          <a
-            href="https://www.otto.de"
-            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
-          >
-            Otto.de
-          </a>
-        </div>
-      </div>
+      <!-- Education -->
+      <div class="flex flex-col gap-6">
+        <h2 class="text-zinc-100">Education</h2>
 
-      <div class="flex gap-12">
-        <span class="text-zinc-400 min-w-[120px]">2021 — 2023</span>
-        <div>
-          <span class="text-zinc-100">Frontend Developer at </span>
-          <a
-            href="https://www.nosto.com"
-            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
-          >
-            Nosto
-          </a>
-        </div>
-      </div>
-
-      <div class="flex gap-12">
-        <span class="text-zinc-400 min-w-[120px]">2019 — 2021</span>
-        <div>
-          <span class="text-zinc-100">Working Student at </span>
-          <a
-            href="https://www.cariad.com"
-            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
-          >
-            CARIAD
-          </a>
-        </div>
-      </div>
-
-      <div class="flex gap-12">
-        <span class="text-zinc-400 min-w-[120px]">2018 — 2019</span>
-        <div>
-          <span class="text-zinc-100">Working Student at </span>
-          <a
-            href="https://www.apploft.de"
-            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
-          >
-            Apploft
-          </a>
-        </div>
-      </div>
-
-      <div class="flex gap-12">
-        <span class="text-zinc-400 min-w-[120px]">2016 — 2022</span>
-        <div>
-          <span class="text-zinc-100">Bachelor of Science at </span>
-          <a
-            href="https://www.htw-berlin.de"
-            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
-          >
-            HTW Berlin
-          </a>
+        <div class="flex flex-col gap-2">
+          <div class="flex gap-12">
+            <span class="text-zinc-400 min-w-[120px]">2016 — 2022</span>
+            <div>
+              <span class="text-zinc-100">Bachelor of Science at </span>
+              <a
+                href="https://www.htw-berlin.de"
+                class="text-zinc-100 hover:underline underline-offset-4 transition-all"
+              >
+                HTW Berlin
+              </a>
+            </div>
+          </div>
+          <p class="text-zinc-400 ml-[168px]">
+            Media and Computer Science (Medieninformatik). Also studied abroad in Finland at Tamk.
+          </p>
         </div>
       </div>
     </div>
