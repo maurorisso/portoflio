@@ -3,126 +3,243 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Mauro Risso | Product Software Engineer">
-  <!-- Intro Section  -->
-  <section class="flex flex-col gap-4 mb-8">
-    <div class="flex flex-col gap-4">
-      <p>
-        I am a product software engineer, a son, a brother, a friend, or
-        probably just a stranger.
-      </p>
-      <p>
-        Curious and interested in tech, design, saas, branding, fashion, music,
-        art, and more.
-      </p>
-    </div>
+  <!-- Tab Navigation -->
+  <nav class="mb-16">
+    <ul class="flex gap-8">
+      <li>
+        <button
+          data-tab="present"
+          class="tab-button text-zinc-100 hover:underline underline-offset-4 transition-all"
+        >
+          Present
+        </button>
+      </li>
+      <li>
+        <button
+          data-tab="past"
+          class="tab-button text-zinc-400 hover:text-zinc-100 hover:underline underline-offset-4 transition-all"
+        >
+          Past
+        </button>
+      </li>
+      <li>
+        <button
+          data-tab="qa"
+          class="tab-button text-zinc-400 hover:text-zinc-100 hover:underline underline-offset-4 transition-all"
+        >
+          Questions & Answers
+        </button>
+      </li>
+    </ul>
+  </nav>
 
-    <div class="flex flex-col gap-4">
-      <div class="flex gap-4">
-        <span class="text-zinc-400">Since 2025</span>
-        <div>
-          Founding Engineer at
+  <!-- Present Tab Content -->
+  <section id="present-tab" class="tab-content">
+    <div class="flex flex-col gap-16">
+      <!-- Description -->
+      <div class="flex flex-col gap-4">
+        <p class="text-zinc-100">
+          Product engineer based in Berlin
+        </p>
+        <p class="text-zinc-100">
+          Curious, interested in design and systems
+        </p>
+      </div>
+
+      <!-- Current Work -->
+      <div class="flex flex-col gap-6">
+        <div class="flex gap-12">
+          <span class="text-zinc-400 min-w-[120px]">Since 2026</span>
+          <div>
+            <span class="text-zinc-100">Product engineer at </span>
+            <a
+              href="https://handly.de"
+              class="text-zinc-100 hover:underline underline-offset-4 transition-all"
+            >
+              handly.de
+            </a>
+          </div>
+        </div>
+
+        <div class="flex gap-12">
+          <span class="text-zinc-400 min-w-[120px]">Since 2018</span>
+          <span class="text-zinc-100">Living in Berlin</span>
+        </div>
+      </div>
+
+      <!-- Get in touch -->
+      <div class="flex flex-col gap-6">
+        <h2 class="text-zinc-100">Get in touch</h2>
+        <div class="flex gap-6">
           <a
-            href="https://www.usekinetic.com"
-            class="text-zinc-200 hover:text-zinc-100 transition-colors font-bold hover:underline"
+            href="https://github.com/maurorisso"
+            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
           >
-            Kinetic
+            GitHub↗
+          </a>
+          <a
+            href="https://linkedin.com/in/maurorisso"
+            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
+          >
+            LinkedIn↗
+          </a>
+          <a
+            href="#"
+            onclick="event.preventDefault(); this.textContent = 'me[at]maurorisso.com'"
+            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
+          >
+            Email↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Past Tab Content -->
+  <section id="past-tab" class="tab-content hidden">
+    <div class="flex flex-col gap-6">
+      <div class="flex gap-12">
+        <span class="text-zinc-400 min-w-[120px]">2026 — Now</span>
+        <div>
+          <span class="text-zinc-100">Product engineer at </span>
+          <a
+            href="https://handly.de"
+            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
+          >
+            handly.de
           </a>
         </div>
       </div>
 
-      <div class="flex gap-4">
-        <span class="text-zinc-400">Since 2018</span>
-        <span>living in Berlin</span>
+      <div class="flex gap-12">
+        <span class="text-zinc-400 min-w-[120px]">2023 — 2025</span>
+        <div>
+          <span class="text-zinc-100">Full-Stack Developer at </span>
+          <a
+            href="https://www.otto.de"
+            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
+          >
+            Otto.de
+          </a>
+        </div>
+      </div>
+
+      <div class="flex gap-12">
+        <span class="text-zinc-400 min-w-[120px]">2021 — 2023</span>
+        <div>
+          <span class="text-zinc-100">Frontend Developer at </span>
+          <a
+            href="https://www.nosto.com"
+            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
+          >
+            Nosto
+          </a>
+        </div>
+      </div>
+
+      <div class="flex gap-12">
+        <span class="text-zinc-400 min-w-[120px]">2019 — 2021</span>
+        <div>
+          <span class="text-zinc-100">Working Student at </span>
+          <a
+            href="https://www.cariad.com"
+            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
+          >
+            CARIAD
+          </a>
+        </div>
+      </div>
+
+      <div class="flex gap-12">
+        <span class="text-zinc-400 min-w-[120px]">2018 — 2019</span>
+        <div>
+          <span class="text-zinc-100">Working Student at </span>
+          <a
+            href="https://www.apploft.de"
+            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
+          >
+            Apploft
+          </a>
+        </div>
+      </div>
+
+      <div class="flex gap-12">
+        <span class="text-zinc-400 min-w-[120px]">2016 — 2022</span>
+        <div>
+          <span class="text-zinc-100">Bachelor of Science at </span>
+          <a
+            href="https://www.htw-berlin.de"
+            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
+          >
+            HTW Berlin
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Tech Section -->
-  <section class="flex flex-col gap-8">
-    <div class="flex flex-col gap-4 text-zinc-400">
-      <h3 class="text-xl text-white">Experience</h3>
-
+  <!-- Q&A Tab Content -->
+  <section id="qa-tab" class="tab-content hidden">
+    <div class="flex flex-col gap-8">
       <div>
-        At <a
-          href="https://www.otto.de"
-          class="text-zinc-200 font-bold hover:text-zinc-100 transition-colors hover:underline"
-          >Otto</a
-        >, I worked as a Full Stack Developer building widgets for their
-        homepage and app. We created an internal CMS using Kotlin and Vue.js,
-        running on AWS.
-      </div>
-      <div>
-        At <a
-          href="https://www.nosto.com"
-          class="text-zinc-200 font-bold hover:text-zinc-100 transition-colors hover:underline"
-          >Nosto</a
-        >, I worked as a Frontend Developer building custom web components with
-        React and GraphQL for Shopify and Magento stores. Created over 100
-        components that merchants could easily add to their stores.
+        <h3 class="text-zinc-100 mb-2">What are you working on?</h3>
+        <p class="text-zinc-400">
+          Currently building products at handly.de, focusing on innovative solutions for modern challenges.
+        </p>
       </div>
 
       <div>
-        I had my first tech jobs as a working student and intern at <a
-          href="https://www.apploft.de"
-          class="text-zinc-200 font-bold hover:text-zinc-100 transition-colors hover:underline"
-          >Apploft</a
-        >, <span class="text-zinc-200 font-bold transition-colors">
-          Chips.tv,
-        </span> and <a
-          href="https://www.cariad.com"
-          class="text-zinc-200 font-bold hover:text-zinc-100 transition-colors hover:underline"
-          >CARIAD</a
-        >, where I worked with Kotlin and JavaScript.
+        <h3 class="text-zinc-100 mb-2">What tech do you use?</h3>
+        <p class="text-zinc-400">
+          I enjoy working with the typical SaaS stack: Next.js, TypeScript, Supabase, Tailwind CSS (with shadcn/ui), and Vercel.
+        </p>
       </div>
-    </div>
 
-    <div class="flex flex-col gap-4">
-      <h3 class="text-xl text-white">Education</h3>
-      <div class="text-zinc-400">
-        Altough not so relevant nowadays, I also completed my "Media and
-        Computer Science" (Medieninformatik in German) BSc. at <a
-          href="https://www.htw-berlin.de"
-          class="text-zinc-200 hover:text-zinc-100 transition-colors hover:underline font-bold"
-          >HTW Berlin</a
-        >. I also studied some months in Finland at <a
-          href="https://www.tuni.fi"
-          class="text-zinc-200 hover:text-zinc-100 transition-colors hover:underline font-bold"
-          >Tamk</a
-        >.
+      <div>
+        <h3 class="text-zinc-100 mb-2">What interests you?</h3>
+        <p class="text-zinc-400">
+          Tech, design, SaaS, branding, fashion, music, art, and systems thinking.
+        </p>
       </div>
     </div>
-    <div class="flex flex-col gap-4">
-      <h3 class="text-xl text-white">Tech Stack</h3>
-      <div class="text-zinc-400">
-        I enjoy working with the typical SaaS stack: Next.js, TypeScript, Supabase, Tailwind CSS (with shadcn/ui), and Vercel.
-      </div>
-    </div>
-    <script is:inline>
-      function setupToggleListeners() {
-        document.querySelectorAll("[data-details-toggle]").forEach((toggle) => {
-          // Remove any existing listeners first to prevent duplicates
-          const clone = toggle.cloneNode(true);
-          toggle.parentNode.replaceChild(clone, toggle);
+  </section>
 
-          clone.addEventListener("click", (e) => {
-            if (e.target && e.target.tagName === "A") {
-              e.stopPropagation();
-              return;
+  <script>
+    function setupTabs() {
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const tabName = button.getAttribute('data-tab');
+
+          // Update button states
+          tabButtons.forEach(btn => {
+            if (btn === button) {
+              btn.classList.remove('text-zinc-400');
+              btn.classList.add('text-zinc-100');
+            } else {
+              btn.classList.remove('text-zinc-100');
+              btn.classList.add('text-zinc-400');
             }
-            const details =
-              clone.parentElement?.querySelector("[data-details]");
-            if (details) {
-              details.classList.toggle("hidden");
+          });
+
+          // Update content visibility
+          tabContents.forEach(content => {
+            if (content.id === `${tabName}-tab`) {
+              content.classList.remove('hidden');
+            } else {
+              content.classList.add('hidden');
             }
           });
         });
-      }
+      });
+    }
 
-      // Run on initial load
-      document.addEventListener("DOMContentLoaded", setupToggleListeners);
+    // Run on initial load
+    document.addEventListener('DOMContentLoaded', setupTabs);
 
-      // Run on view transitions
-      document.addEventListener("astro:after-swap", setupToggleListeners);
-    </script>
-  </section>
+    // Run on view transitions
+    document.addEventListener('astro:after-swap', setupTabs);
+  </script>
 </Layout>
