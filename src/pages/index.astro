@@ -209,7 +209,7 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <script>
+  <script is:inline>
     function setupTabs() {
       const tabButtons = document.querySelectorAll('.tab-button');
       const tabContents = document.querySelectorAll('.tab-content');
@@ -241,8 +241,8 @@ import Layout from "../layouts/Layout.astro";
       });
     }
 
-    // Run on initial load
-    document.addEventListener('DOMContentLoaded', setupTabs);
+    // Run immediately
+    setupTabs();
 
     // Run on view transitions
     document.addEventListener('astro:after-swap', setupTabs);
