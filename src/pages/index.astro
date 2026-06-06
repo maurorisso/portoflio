@@ -11,13 +11,7 @@ const work = [
   { when: "2019 — 2020", role: "Frontend Developer", at: "ChipsTV", href: "https://www.crunchbase.com/organization/chipstv" },
 ];
 
-const experiments = [
-  { name: "Textura", note: "AI photography studio", href: "https://textura.almabrava.xyz" },
-  { name: "Almabrava", note: "studio · experiments", href: "https://almabrava.xyz" },
-  { name: "Quartier", note: "European founders, shouted out", href: "https://quartier.tech" },
-];
-
-const interests = ["tech", "design", "SaaS", "branding", "fashion", "music", "art", "type", "startups", "Berlin"];
+const interests =["tech", "design", "SaaS", "branding", "fashion", "music", "art", "type", "startups", "Berlin"];
 ---
 
 <Layout title="Mauro Risso | Product Software Engineer">
@@ -69,28 +63,6 @@ const interests = ["tech", "design", "SaaS", "branding", "fashion", "music", "ar
               {w.at}
             </a>
           </div>
-        </div>
-      ))
-    }
-  </section>
-
-  <!-- Experiments -->
-  <section class="mt-14 flex flex-col gap-3">
-    <h2 class="reveal scramble text-zinc-500 lowercase tracking-widest text-xs">
-      experiments
-    </h2>
-    {
-      experiments.map((p, i) => (
-        <div class="row reveal flex gap-12" style={`--i: ${i + 1}`}>
-          <a
-            href={p.href}
-            target="_blank"
-            rel="noopener"
-            class="link swapper min-w-[120px]"
-          >
-            {p.name}
-          </a>
-          <span class="text-zinc-400">{p.note}</span>
         </div>
       ))
     }
