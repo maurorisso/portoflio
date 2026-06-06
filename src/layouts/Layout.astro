@@ -35,6 +35,12 @@ const currentPath = Astro.url.pathname;
     <title>{title}</title>
   </head>
   <body class="bg-black text-zinc-100 antialiased text-sm">
+    <div
+      id="progress"
+      class="fixed left-0 top-0 z-50 h-[2px] w-0 bg-[#96CD79]"
+      style="box-shadow: 0 0 8px #96cd79;"
+    >
+    </div>
     <main class="mx-auto max-w-2xl px-4 py-16">
       <header class="mb-10">
         <h1
@@ -43,7 +49,6 @@ const currentPath = Astro.url.pathname;
         >
           Mauro Risso
         </h1>
-        <p class="mt-2 text-zinc-500 text-xs">move your cursor →</p>
       </header>
       <slot />
       <footer class="mt-8">

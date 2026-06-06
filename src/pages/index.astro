@@ -10,11 +10,19 @@ const work = [
   { when: "2020 — 2024", role: "Computer Science", at: "HTW Berlin", href: "https://www.htw-berlin.de" },
   { when: "2019 — 2020", role: "Frontend Developer", at: "ChipsTV", href: "https://www.crunchbase.com/organization/chipstv" },
 ];
+
+const experiments = [
+  { name: "Textura", note: "AI photography studio", href: "https://textura.almabrava.xyz" },
+  { name: "Almabrava", note: "studio · experiments", href: "https://almabrava.xyz" },
+  { name: "Quartier", note: "European founders, shouted out", href: "https://quartier.tech" },
+];
+
+const interests = ["tech", "design", "SaaS", "branding", "fashion", "music", "art", "type", "startups", "Berlin"];
 ---
 
 <Layout title="Mauro Risso | Product Software Engineer">
   <!-- Intro -->
-  <section class="reveal flex flex-col gap-4" style="--i: 0">
+  <section class="reveal flex flex-col gap-4">
     <p class="text-zinc-100 leading-relaxed">
       I am a product software engineer, a son, a brother, a friend, or probably
       just a stranger.
@@ -26,16 +34,18 @@ const work = [
   </section>
 
   <!-- Now -->
-  <section class="reveal mt-12 flex flex-col gap-3" style="--i: 1">
-    <h2 class="text-zinc-500 lowercase tracking-widest text-xs">now</h2>
-    <div class="flex gap-12">
+  <section class="mt-14 flex flex-col gap-3">
+    <h2 class="reveal scramble text-zinc-500 lowercase tracking-widest text-xs">
+      now
+    </h2>
+    <div class="reveal flex gap-12" style="--i: 1">
       <span class="text-zinc-400 min-w-[120px]">Building</span>
       <div>
         <span class="text-zinc-100">Product engineer at </span>
-        <a href="https://handly.de" class="link">handly.de</a>
+        <a href="https://handly.de" class="link swapper">handly.de</a>
       </div>
     </div>
-    <div class="flex gap-12">
+    <div class="reveal flex gap-12" style="--i: 2">
       <span class="text-zinc-400 min-w-[120px]">Based in</span>
       <div>
         <span class="text-zinc-100">Berlin</span>
@@ -45,15 +55,17 @@ const work = [
   </section>
 
   <!-- Work -->
-  <section class="reveal mt-12 flex flex-col gap-3" style="--i: 2">
-    <h2 class="text-zinc-500 lowercase tracking-widest text-xs">work</h2>
+  <section class="mt-14 flex flex-col gap-3">
+    <h2 class="reveal scramble text-zinc-500 lowercase tracking-widest text-xs">
+      work
+    </h2>
     {
-      work.map((w) => (
-        <div class="row flex gap-12">
+      work.map((w, i) => (
+        <div class="row reveal flex gap-12" style={`--i: ${i + 1}`}>
           <span class="text-zinc-400 min-w-[120px]">{w.when}</span>
           <div>
             <span class="text-zinc-100">{w.role} at </span>
-            <a href={w.href} target="_blank" rel="noopener" class="link">
+            <a href={w.href} target="_blank" rel="noopener" class="link swapper">
               {w.at}
             </a>
           </div>
@@ -61,9 +73,71 @@ const work = [
       ))
     }
   </section>
+
+  <!-- Experiments -->
+  <section class="mt-14 flex flex-col gap-3">
+    <h2 class="reveal scramble text-zinc-500 lowercase tracking-widest text-xs">
+      experiments
+    </h2>
+    {
+      experiments.map((p, i) => (
+        <div class="row reveal flex gap-12" style={`--i: ${i + 1}`}>
+          <a
+            href={p.href}
+            target="_blank"
+            rel="noopener"
+            class="link swapper min-w-[120px]"
+          >
+            {p.name}
+          </a>
+          <span class="text-zinc-400">{p.note}</span>
+        </div>
+      ))
+    }
+  </section>
+
+  <!-- Interests marquee -->
+  <section class="mt-14 flex flex-col gap-3">
+    <h2 class="reveal scramble text-zinc-500 lowercase tracking-widest text-xs">
+      into
+    </h2>
+    <div class="reveal marquee text-zinc-500" style="--i: 1">
+      <div class="marquee__track">
+        {[0, 1].map(() => (
+          <span class="marquee__group">
+            {interests.map((t) => (
+              <span class="marquee__item">{t}</span>
+            ))}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
+  /* scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: calc(var(--i, 0) * 0.06s);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* links */
   .link {
     color: #fbf6ef;
     transition: color 0.2s ease;
@@ -82,36 +156,64 @@ const work = [
     opacity: 1;
   }
 
-  .row {
-    transition: opacity 0.2s ease;
-  }
-  /* dim the other rows while hovering one */
+  /* dim sibling rows while hovering one */
   section:has(.row:hover) .row:not(:hover) {
-    opacity: 0.4;
+    opacity: 0.35;
+  }
+  .row {
+    transition:
+      opacity 0.25s ease,
+      transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
-  .reveal {
-    opacity: 0;
-    transform: translateY(8px);
-    animation: rise 0.5s ease forwards;
-    animation-delay: calc(var(--i) * 0.12s + 0.05s);
+  /* marquee */
+  .marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
   }
-  @keyframes rise {
+  .marquee__track {
+    display: inline-flex;
+    width: max-content;
+    animation: scroll 22s linear infinite;
+  }
+  .marquee:hover .marquee__track {
+    animation-play-state: paused;
+  }
+  .marquee__item {
+    margin: 0 1.25rem;
+  }
+  .marquee__item::before {
+    content: "✦ ";
+    color: #96cd79;
+  }
+  @keyframes scroll {
     to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal {
-      animation: none;
-      opacity: 1;
-      transform: none;
+      transform: translateX(-50%);
     }
   }
 </style>
 
 <script is:inline>
+  const FONTS = Array.from(
+    { length: 28 },
+    (_, i) => "pf" + String(i).padStart(2, "0"),
+  );
+  const rndFont = () => FONTS[Math.floor(Math.random() * FONTS.length)];
+
   function berlinClock() {
     const el = document.getElementById("clock");
     if (!el) return;
@@ -121,45 +223,104 @@ const work = [
       minute: "2-digit",
       second: "2-digit",
     });
-    const tick = () => {
-      el.textContent = fmt.format(new Date());
-    };
+    const tick = () => (el.textContent = fmt.format(new Date()));
     tick();
-    window.clearInterval(window.__clock);
-    window.__clock = window.setInterval(tick, 1000);
+    clearInterval(window.__clock);
+    window.__clock = setInterval(tick, 1000);
   }
 
-  // Almabrava-style: swap the name's font as the cursor moves the page.
+  // Name swaps font as the cursor moves the page (Almabrava-style).
   function nameFontSwap() {
     const name = document.getElementById("name");
     if (!name || name.dataset.swap) return;
     name.dataset.swap = "1";
-
-    const FONTS = Array.from({ length: 28 }, (_, i) =>
-      "pf" + String(i).padStart(2, "0"),
-    );
     let current = "";
     let last = 0;
-
     const swap = () => {
       const now = performance.now();
-      if (now - last < 80) return; // throttle so each face is legible
+      if (now - last < 80) return;
       last = now;
       let next = current;
-      while (next === current) {
-        next = FONTS[Math.floor(Math.random() * FONTS.length)];
-      }
+      while (next === current) next = rndFont();
       current = next;
       name.style.fontFamily = "'" + next + "', sans-serif";
     };
-
     window.addEventListener("mousemove", swap);
     window.addEventListener("touchmove", swap, { passive: true });
+  }
+
+  // Hovering any company/project name flips it into a random display face.
+  function hoverSwap() {
+    document.querySelectorAll(".swapper").forEach((el) => {
+      if (el.dataset.hs) return;
+      el.dataset.hs = "1";
+      el.addEventListener("mouseenter", () => {
+        el.style.fontFamily = "'" + rndFont() + "', sans-serif";
+      });
+      el.addEventListener("mouseleave", () => {
+        el.style.fontFamily = "";
+      });
+    });
+  }
+
+  // Thin green scroll-progress bar.
+  function scrollProgress() {
+    const bar = document.getElementById("progress");
+    if (!bar) return;
+    const onScroll = () => {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  // Reveal on scroll; scramble-decode section labels as they enter.
+  function reveals() {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ#%&@/*";
+    const scramble = (el) => {
+      const real = el.dataset.real || el.textContent;
+      el.dataset.real = real;
+      let frame = 0;
+      const run = () => {
+        el.textContent = real
+          .split("")
+          .map((c, i) =>
+            c === " "
+              ? " "
+              : i < frame / 2
+                ? real[i]
+                : chars[Math.floor(Math.random() * chars.length)],
+          )
+          .join("");
+        frame++;
+        if (frame / 2 < real.length) requestAnimationFrame(run);
+        else el.textContent = real;
+      };
+      run();
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("in");
+          if (e.target.classList.contains("scramble")) scramble(e.target);
+          io.unobserve(e.target);
+        });
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -8% 0px" },
+    );
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
   }
 
   function setup() {
     berlinClock();
     nameFontSwap();
+    hoverSwap();
+    scrollProgress();
+    reveals();
   }
   setup();
   document.addEventListener("astro:after-swap", setup);
