@@ -10,11 +10,9 @@ const work = [
   { when: "2020 — 2024", role: "Computer Science", at: "HTW Berlin", href: "https://www.htw-berlin.de" },
   { when: "2019 — 2020", role: "Frontend Developer", at: "ChipsTV", href: "https://www.crunchbase.com/organization/chipstv" },
 ];
-
-const interests =["tech", "design", "SaaS", "branding", "fashion", "music", "art", "type", "startups", "Berlin"];
 ---
 
-<Layout title="Mauro Risso | Product Software Engineer">
+<Layout title="mauro">
   <!-- Intro -->
   <section class="reveal flex flex-col gap-4">
     <p class="text-zinc-100 leading-relaxed">
@@ -36,7 +34,7 @@ const interests =["tech", "design", "SaaS", "branding", "fashion", "music", "art
       <span class="text-zinc-400 min-w-[120px]">Building</span>
       <div>
         <span class="text-zinc-100">Product engineer at </span>
-        <a href="https://handly.de" class="link swapper">handly.de</a>
+        <a href="https://handly.de" class="link">handly.de</a>
       </div>
     </div>
     <div class="reveal flex gap-12" style="--i: 2">
@@ -59,7 +57,7 @@ const interests =["tech", "design", "SaaS", "branding", "fashion", "music", "art
           <span class="text-zinc-400 min-w-[120px]">{w.when}</span>
           <div>
             <span class="text-zinc-100">{w.role} at </span>
-            <a href={w.href} target="_blank" rel="noopener" class="link swapper">
+            <a href={w.href} target="_blank" rel="noopener" class="link">
               {w.at}
             </a>
           </div>
@@ -68,23 +66,6 @@ const interests =["tech", "design", "SaaS", "branding", "fashion", "music", "art
     }
   </section>
 
-  <!-- Interests marquee -->
-  <section class="mt-14 flex flex-col gap-3">
-    <h2 class="reveal scramble text-zinc-500 lowercase tracking-widest text-xs">
-      into
-    </h2>
-    <div class="reveal marquee text-zinc-500" style="--i: 1">
-      <div class="marquee__track">
-        {[0, 1].map(() => (
-          <span class="marquee__group">
-            {interests.map((t) => (
-              <span class="marquee__item">{t}</span>
-            ))}
-          </span>
-        ))}
-      </div>
-    </div>
-  </section>
 </Layout>
 
 <style>
@@ -115,12 +96,12 @@ const interests =["tech", "design", "SaaS", "branding", "fashion", "music", "art
     transition: color 0.2s ease;
   }
   .link:hover {
-    color: #520B18;
+    color: #BBE49F;
   }
   .link::after {
     content: "↗";
     margin-left: 0.15em;
-    color: #520B18;
+    color: #BBE49F;
     opacity: 0;
     transition: opacity 0.2s ease;
   }
@@ -138,54 +119,9 @@ const interests =["tech", "design", "SaaS", "branding", "fashion", "music", "art
       transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
-  /* marquee */
-  .marquee {
-    overflow: hidden;
-    white-space: nowrap;
-    -webkit-mask-image: linear-gradient(
-      90deg,
-      transparent,
-      #000 12%,
-      #000 88%,
-      transparent
-    );
-    mask-image: linear-gradient(
-      90deg,
-      transparent,
-      #000 12%,
-      #000 88%,
-      transparent
-    );
-  }
-  .marquee__track {
-    display: inline-flex;
-    width: max-content;
-    animation: scroll 22s linear infinite;
-  }
-  .marquee:hover .marquee__track {
-    animation-play-state: paused;
-  }
-  .marquee__item {
-    margin: 0 1.25rem;
-  }
-  .marquee__item::before {
-    content: "✦ ";
-    color: #520B18;
-  }
-  @keyframes scroll {
-    to {
-      transform: translateX(-50%);
-    }
-  }
 </style>
 
 <script is:inline>
-  const FONTS = Array.from(
-    { length: 28 },
-    (_, i) => "pf" + String(i).padStart(2, "0"),
-  );
-  const rndFont = () => FONTS[Math.floor(Math.random() * FONTS.length)];
-
   function berlinClock() {
     const el = document.getElementById("clock");
     if (!el) return;
@@ -199,40 +135,6 @@ const interests =["tech", "design", "SaaS", "branding", "fashion", "music", "art
     tick();
     clearInterval(window.__clock);
     window.__clock = setInterval(tick, 1000);
-  }
-
-  // Name swaps font as the cursor moves the page (Almabrava-style).
-  function nameFontSwap() {
-    const name = document.getElementById("name");
-    if (!name || name.dataset.swap) return;
-    name.dataset.swap = "1";
-    let current = "";
-    let last = 0;
-    const swap = () => {
-      const now = performance.now();
-      if (now - last < 80) return;
-      last = now;
-      let next = current;
-      while (next === current) next = rndFont();
-      current = next;
-      name.style.fontFamily = "'" + next + "', sans-serif";
-    };
-    window.addEventListener("mousemove", swap);
-    window.addEventListener("touchmove", swap, { passive: true });
-  }
-
-  // Hovering any company/project name flips it into a random display face.
-  function hoverSwap() {
-    document.querySelectorAll(".swapper").forEach((el) => {
-      if (el.dataset.hs) return;
-      el.dataset.hs = "1";
-      el.addEventListener("mouseenter", () => {
-        el.style.fontFamily = "'" + rndFont() + "', sans-serif";
-      });
-      el.addEventListener("mouseleave", () => {
-        el.style.fontFamily = "";
-      });
-    });
   }
 
   // Thin green scroll-progress bar.
@@ -289,8 +191,6 @@ const interests =["tech", "design", "SaaS", "branding", "fashion", "music", "art
 
   function setup() {
     berlinClock();
-    nameFontSwap();
-    hoverSwap();
     scrollProgress();
     reveals();
   }
