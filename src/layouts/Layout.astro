@@ -25,6 +25,7 @@ const currentPath = Astro.url.pathname;
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/fonts.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&display=swap"
       rel="stylesheet"
@@ -35,8 +36,14 @@ const currentPath = Astro.url.pathname;
   </head>
   <body class="bg-black text-zinc-100 antialiased text-sm">
     <main class="mx-auto max-w-2xl px-4 py-16">
-      <header class="mb-8">
-        <h1 class="text-lg font-normal text-zinc-100 mb-8">Mauro Risso</h1>
+      <header class="mb-10">
+        <h1
+          id="name"
+          class="text-4xl sm:text-5xl font-normal leading-none text-zinc-100"
+        >
+          Mauro Risso
+        </h1>
+        <p class="mt-2 text-zinc-500 text-xs">move your cursor →</p>
       </header>
       <slot />
       <footer class="mt-8">

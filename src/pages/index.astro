@@ -1,207 +1,166 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const work = [
+  { when: "2026 — Now", role: "Product Engineer", at: "handly.de", href: "https://handly.de" },
+  { when: "2025 — 2026", role: "Founding Product Engineer", at: "Kinetic", href: "https://usekinetic.com" },
+  { when: "2024 — 2025", role: "Full-Stack Engineer", at: "OTTO", href: "https://www.otto.de" },
+  { when: "2023 — 2024", role: "Frontend Developer", at: "Nosto", href: "https://www.nosto.com" },
+  { when: "2021 — 2022", role: "Working Student", at: "CARIAD & apploft", href: "https://www.cariad.com" },
+  { when: "2020 — 2024", role: "Computer Science", at: "HTW Berlin", href: "https://www.htw-berlin.de" },
+  { when: "2019 — 2020", role: "Frontend Developer", at: "ChipsTV", href: "https://www.crunchbase.com/organization/chipstv" },
+];
 ---
 
 <Layout title="Mauro Risso | Product Software Engineer">
-  <!-- Tab Navigation -->
-  <nav class="mb-8">
-    <ul class="flex gap-8">
-      <li>
-        <button
-          data-tab="present"
-          class="tab-button text-zinc-100 hover:underline underline-offset-4 transition-all"
-        >
-          Present
-        </button>
-      </li>
-      <li>
-        <button
-          data-tab="past"
-          class="tab-button text-zinc-400 hover:text-zinc-100 hover:underline underline-offset-4 transition-all"
-        >
-          Past
-        </button>
-      </li>
-    </ul>
-  </nav>
+  <!-- Intro -->
+  <section class="reveal flex flex-col gap-4" style="--i: 0">
+    <p class="text-zinc-100 leading-relaxed">
+      I am a product software engineer, a son, a brother, a friend, or probably
+      just a stranger.
+    </p>
+    <p class="text-zinc-400 leading-relaxed">
+      Curious and interested in tech, design, SaaS, branding, fashion, music,
+      art, and more.
+    </p>
+  </section>
 
-  <!-- Present Tab Content -->
-  <section id="present-tab" class="tab-panel min-h-[320px]">
-    <div class="flex flex-col gap-8">
-      <!-- Description -->
-      <div class="flex flex-col gap-4">
-        <p class="text-zinc-100">
-          I am a product software engineer, a son, a brother, a friend, or
-          probably just a stranger.
-        </p>
-        <p class="text-zinc-100">
-          Curious and interested in tech, design, SaaS, branding, fashion,
-          music, art, and more.
-        </p>
+  <!-- Now -->
+  <section class="reveal mt-12 flex flex-col gap-3" style="--i: 1">
+    <h2 class="text-zinc-500 lowercase tracking-widest text-xs">now</h2>
+    <div class="flex gap-12">
+      <span class="text-zinc-400 min-w-[120px]">Building</span>
+      <div>
+        <span class="text-zinc-100">Product engineer at </span>
+        <a href="https://handly.de" class="link">handly.de</a>
       </div>
+    </div>
+    <div class="flex gap-12">
+      <span class="text-zinc-400 min-w-[120px]">Based in</span>
+      <div>
+        <span class="text-zinc-100">Berlin</span>
+        <span class="text-zinc-500"> · <span id="clock">--:--:--</span></span>
+      </div>
+    </div>
+  </section>
 
-      <!-- Current Work -->
-      <div class="flex flex-col gap-4">
-        <div class="flex gap-12">
-          <span class="text-zinc-400 min-w-[120px]">Since 2026</span>
+  <!-- Work -->
+  <section class="reveal mt-12 flex flex-col gap-3" style="--i: 2">
+    <h2 class="text-zinc-500 lowercase tracking-widest text-xs">work</h2>
+    {
+      work.map((w) => (
+        <div class="row flex gap-12">
+          <span class="text-zinc-400 min-w-[120px]">{w.when}</span>
           <div>
-            <span class="text-zinc-100">Product engineer at </span>
-            <a
-              href="https://handly.de"
-              class="text-zinc-100 hover:underline underline-offset-4 transition-all"
-            >
-              handly.de
+            <span class="text-zinc-100">{w.role} at </span>
+            <a href={w.href} target="_blank" rel="noopener" class="link">
+              {w.at}
             </a>
           </div>
         </div>
-
-        <div class="flex gap-12">
-          <span class="text-zinc-400 min-w-[120px]">Since 2018</span>
-          <span class="text-zinc-100">Living in Berlin</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Past Tab Content -->
-  <section id="past-tab" class="tab-panel min-h-[320px] hidden">
-    <div class="flex flex-col gap-6">
-      <div class="flex gap-12">
-        <span class="text-zinc-400 min-w-[120px]">2026 — Now</span>
-        <div>
-          <span class="text-zinc-100">Product Engineer at </span>
-          <a
-            href="https://handly.de"
-            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
-          >
-            handly.de
-          </a>
-        </div>
-      </div>
-
-      <div class="flex gap-12">
-        <span class="text-zinc-400 min-w-[120px]">2025 — 2026</span>
-        <div>
-          <span class="text-zinc-100">Founding Product Engineer at </span>
-          <a
-            href="https://usekinetic.com"
-            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
-          >
-            Kinetic
-          </a>
-        </div>
-      </div>
-
-      <div class="flex gap-12">
-        <span class="text-zinc-400 min-w-[120px]">2024 — 2025</span>
-        <div>
-          <span class="text-zinc-100">Full Stack Engineer at </span>
-          <a
-            href="https://www.otto.de"
-            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
-          >
-            OTTO
-          </a>
-        </div>
-      </div>
-
-      <div class="flex gap-12">
-        <span class="text-zinc-400 min-w-[120px]">2023 — 2024</span>
-        <div>
-          <span class="text-zinc-100">Frontend Developer at </span>
-          <a
-            href="https://www.nosto.com"
-            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
-          >
-            Nosto
-          </a>
-        </div>
-      </div>
-
-      <div class="flex gap-12">
-        <span class="text-zinc-400 min-w-[120px]">2021 — 2022</span>
-        <div>
-          <span class="text-zinc-100">Working Student at </span>
-          <a
-            href="https://www.cariad.com"
-            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
-          >
-            CARIAD
-          </a>
-          <span class="text-zinc-100"> & </span>
-          <a
-            href="https://www.apploft.de"
-            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
-          >
-            apploft
-          </a>
-        </div>
-      </div>
-
-      <div class="flex gap-12">
-        <span class="text-zinc-400 min-w-[120px]">2020 — 2024</span>
-        <div>
-          <span class="text-zinc-100">Computer Science at </span>
-          <a
-            href="https://www.htw-berlin.de"
-            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
-          >
-            HTW Berlin
-          </a>
-        </div>
-      </div>
-
-      <div class="flex gap-12">
-        <span class="text-zinc-400 min-w-[120px]">2019 — 2020</span>
-        <div>
-          <span class="text-zinc-100">Frontend Developer at </span>
-          <a
-            href="https://www.crunchbase.com/organization/chipstv"
-            class="text-zinc-100 hover:underline underline-offset-4 transition-all"
-          >
-            ChipsTV
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script is:inline>
-    function setupTabs() {
-      const tabButtons = document.querySelectorAll(".tab-button");
-      const tabContents = document.querySelectorAll(".tab-panel");
-
-      tabButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const tabName = button.getAttribute("data-tab");
-
-          // Update button states
-          tabButtons.forEach((btn) => {
-            if (btn === button) {
-              btn.classList.remove("text-zinc-400");
-              btn.classList.add("text-zinc-100");
-            } else {
-              btn.classList.remove("text-zinc-100");
-              btn.classList.add("text-zinc-400");
-            }
-          });
-
-          // Update content visibility
-          tabContents.forEach((content) => {
-            if (content.id === `${tabName}-tab`) {
-              content.classList.remove("hidden");
-            } else {
-              content.classList.add("hidden");
-            }
-          });
-        });
-      });
+      ))
     }
-
-    // Run immediately
-    setupTabs();
-
-    // Run on view transitions
-    document.addEventListener("astro:after-swap", setupTabs);
-  </script>
+  </section>
 </Layout>
+
+<style>
+  .link {
+    color: #fbf6ef;
+    transition: color 0.2s ease;
+  }
+  .link:hover {
+    color: #96cd79;
+  }
+  .link::after {
+    content: "↗";
+    margin-left: 0.15em;
+    color: #96cd79;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .link:hover::after {
+    opacity: 1;
+  }
+
+  .row {
+    transition: opacity 0.2s ease;
+  }
+  /* dim the other rows while hovering one */
+  section:has(.row:hover) .row:not(:hover) {
+    opacity: 0.4;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: rise 0.5s ease forwards;
+    animation-delay: calc(var(--i) * 0.12s + 0.05s);
+  }
+  @keyframes rise {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  function berlinClock() {
+    const el = document.getElementById("clock");
+    if (!el) return;
+    const fmt = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Europe/Berlin",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+    const tick = () => {
+      el.textContent = fmt.format(new Date());
+    };
+    tick();
+    window.clearInterval(window.__clock);
+    window.__clock = window.setInterval(tick, 1000);
+  }
+
+  // Almabrava-style: swap the name's font as the cursor moves the page.
+  function nameFontSwap() {
+    const name = document.getElementById("name");
+    if (!name || name.dataset.swap) return;
+    name.dataset.swap = "1";
+
+    const FONTS = Array.from({ length: 28 }, (_, i) =>
+      "pf" + String(i).padStart(2, "0"),
+    );
+    let current = "";
+    let last = 0;
+
+    const swap = () => {
+      const now = performance.now();
+      if (now - last < 80) return; // throttle so each face is legible
+      last = now;
+      let next = current;
+      while (next === current) {
+        next = FONTS[Math.floor(Math.random() * FONTS.length)];
+      }
+      current = next;
+      name.style.fontFamily = "'" + next + "', sans-serif";
+    };
+
+    window.addEventListener("mousemove", swap);
+    window.addEventListener("touchmove", swap, { passive: true });
+  }
+
+  function setup() {
+    berlinClock();
+    nameFontSwap();
+  }
+  setup();
+  document.addEventListener("astro:after-swap", setup);
+</script>
